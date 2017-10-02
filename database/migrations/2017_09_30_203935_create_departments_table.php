@@ -15,6 +15,9 @@ class CreateDepartmentsTable extends Migration
     {
         Schema::create('departments', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('department_name');
+            $table->integer('facualty_id')->unsigned();
+            $table->foreign('facualty_id')->references('id')->on('facualty')->onDelete('cascade');
             $table->timestamps();
         });
     }
