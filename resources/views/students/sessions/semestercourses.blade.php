@@ -5,20 +5,21 @@
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
-                <div class="panel-heading">Sessions <div class="pull-right">{{@$school->school_name}}</div></div>
+                <div class="panel-heading">Semesters <div class="pull-right">{{@$session->session_name}}</div></div>
                 
                 <div class="panel-body">
                    
-                    <ul>
-                    @foreach($sessions as $session)
+                 <ul>
+                    @foreach($semesters as $semester)
                       <li>
-                        <a href="{{asset('/sessions/'.$session->id) }}" >{{@$session->session_name}}</a>
-                        @if($today->between(@$session->start_date,@$session->end_date))
-                             - Current Session
+                        <a href="{{asset('/semesters/'.$semester->id) }}" >{{@$semester->semester_name}}</a>
+                        @if($today->between(@$semester->start_date,@$semester->end_date))
+                             - Current Semester
                         @endif
                       </li>
                     @endforeach
                     </ul>
+
 
                 </div>
             </div>

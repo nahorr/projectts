@@ -3,6 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\School;
+use App\Session;
+use App\Semester;
+use Carbon\Carbon;
+
+
 
 class HomeController extends Controller
 {
@@ -23,6 +29,11 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $today = Carbon::today();
+        $school = School::first();
+        $sessions = Session::get();
+        $semesters = Semester::get();
+
+        return view('home', compact('today', 'school', 'sessions', 'semesters'));
     }
 }
