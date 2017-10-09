@@ -18,6 +18,8 @@ class CreateSemestersTable extends Migration
             $table->string('semester_name');
             $table->date('start_date');
             $table->date('end_date');
+            $table->date('reg_starts');
+            $table->date('reg_ends');
             $table->integer('session_id')->unsigned();
             $table->foreign('session_id')->references('id')->on('sessions')->onDelete('cascade');
             $table->timestamps();

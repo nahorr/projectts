@@ -30,8 +30,6 @@ class CreateStudentsTable extends Migration
             $table->date('date_of_admission')->nullable();
             $table->date('date_of_completion')->nullable();
             $table->string('avatar')->default('default.jpg');
-            $table->integer('department_id')->unsigned();
-            $table->foreign('department_id')->references('id')->on('departments')->onDelete('cascade');
             $table->timestamps();
         });
     }

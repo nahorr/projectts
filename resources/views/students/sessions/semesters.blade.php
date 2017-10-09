@@ -12,7 +12,7 @@
                  <ul>
                     @foreach($semesters as $semester)
                       <li>
-                        <a href="{{asset('/semesters/'.$semester->id) }}" >{{@$semester->semester_name}}</a>
+                        <a href="{{asset("/$session->id/$semester->id/semestercourses") }}" >{{@$semester->semester_name}}</a>
                         @if($today->between(@$semester->start_date,@$semester->end_date))
                              - Current Semester
                         @endif

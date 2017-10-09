@@ -5,21 +5,21 @@
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
-                <div class="panel-heading">Semesters <div class="pull-right">{{@$session->session_name}}</div></div>
+                <div class="panel-heading">
+                    Your {{@$session->session_name}} {{@$semester->semester_name}} Courses 
+                    <div class="pull-right">
+
+                    @if($today->between(@$semester->reg_starts,@$semester->reg_ends))
+                        <a href="{{asset("/students/$session->id/$semester->id/courseregistration") }}" >
+                            Register
+                        </a>
+                    @endif
+                    </div>
+                </div>
                 
                 <div class="panel-body">
                    
-                 <ul>
-                    @foreach($semesters as $semester)
-                      <li>
-                        <a href="{{asset('/semesters/'.$semester->id) }}" >{{@$semester->semester_name}}</a>
-                        @if($today->between(@$semester->start_date,@$semester->end_date))
-                             - Current Semester
-                        @endif
-                      </li>
-                    @endforeach
-                    </ul>
-
+                 No Courses yet!
 
                 </div>
             </div>

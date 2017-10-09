@@ -12,4 +12,9 @@ class Session extends Model
     {
     	return $this->hasMany('App\Semeter');
     }
+
+    public function courses()
+    {
+    	return $this->hasMany('App\Course');
+    }
 }
